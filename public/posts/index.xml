@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on OnExtent LLC</title>
+    <link>https://onextent.com/posts/</link>
+    <description>Recent content in Posts on OnExtent LLC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Jan 2024 07:07:07 +0100</lastBuildDate>
+    <atom:link href="https://onextent.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Post</title>
+      <link>https://onextent.com/posts/my-first-post/</link>
+      <pubDate>Sun, 14 Jan 2024 07:07:07 +0100</pubDate>
+      <guid>https://onextent.com/posts/my-first-post/</guid>
+      <description>Introduction I am Ed Sweeney and this site contains links to personal projects I am using to further my understanding of computer software.&#xA;Site is a WIP / under construction.&#xA;See https://github.com/navicore and https://www.linkedin.com/in/navicore for more information about what I&amp;rsquo;m up to.</description>
+    </item>
+  </channel>
+</rss>

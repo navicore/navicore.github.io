@@ -1,0 +1,4 @@
+baseURL = 'https://onextent.com/'
+languageCode = 'en-us'
+title = 'OnExtent LLC'
+theme = 'ananke'
