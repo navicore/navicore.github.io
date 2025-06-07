@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #0ff;
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Starfield background */
+.stars, .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMiIgaGVpZ2h0PSIyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIwLjUiIGZpbGw9IiNmZmYiLz48L3N2Zz4=') repeat;
+    z-index: -2;
+}
+
+.twinkling {
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIxIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjEiLz48L3N2Zz4=') repeat;
+    z-index: -1;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glitch effect */
+.glitch-wrapper {
+    margin-bottom: 3rem;
+}
+
+.glitch {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    color: #0ff;
+    letter-spacing: 0.2em;
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: #ff0;
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: #f0f;
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0% {
+        clip-path: inset(40% 0 60% 0);
+        transform: translate(-2px, -2px);
+    }
+    20% {
+        clip-path: inset(90% 0 10% 0);
+        transform: translate(2px, 2px);
+    }
+    40% {
+        clip-path: inset(50% 0 50% 0);
+        transform: translate(-2px, 2px);
+    }
+    60% {
+        clip-path: inset(10% 0 90% 0);
+        transform: translate(2px, -2px);
+    }
+    80% {
+        clip-path: inset(25% 0 75% 0);
+        transform: translate(-2px, -2px);
+    }
+    100% {
+        clip-path: inset(60% 0 40% 0);
+        transform: translate(2px, 2px);
+    }
+}
+
+@keyframes glitch-2 {
+    0% {
+        clip-path: inset(65% 0 35% 0);
+        transform: translate(2px, -2px);
+    }
+    20% {
+        clip-path: inset(15% 0 85% 0);
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        clip-path: inset(85% 0 15% 0);
+        transform: translate(2px, 2px);
+    }
+    60% {
+        clip-path: inset(35% 0 65% 0);
+        transform: translate(-2px, -2px);
+    }
+    80% {
+        clip-path: inset(75% 0 25% 0);
+        transform: translate(2px, -2px);
+    }
+    100% {
+        clip-path: inset(5% 0 95% 0);
+        transform: translate(-2px, 2px);
+    }
+}
+
+@keyframes glitch-skew {
+    0% { transform: skew(0deg); }
+    10% { transform: skew(-2deg); }
+    20% { transform: skew(1deg); }
+    30% { transform: skew(-1deg); }
+    40% { transform: skew(2deg); }
+    50% { transform: skew(0deg); }
+    60% { transform: skew(1deg); }
+    70% { transform: skew(-2deg); }
+    80% { transform: skew(2deg); }
+    90% { transform: skew(-1deg); }
+    100% { transform: skew(0deg); }
+}
+
+/* Terminal */
+.terminal {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #0ff;
+    border-radius: 8px;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    margin-bottom: 3rem;
+}
+
+.terminal-header {
+    background: #1a1a1a;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #0ff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button.red { background: #ff5f56; }
+.terminal-button.yellow { background: #ffbd2e; }
+.terminal-button.green { background: #27c93f; }
+
+.terminal-title {
+    margin-left: auto;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.terminal-content {
+    padding: 1.5rem;
+}
+
+.command {
+    color: #0f0;
+    margin-bottom: 0.5rem;
+}
+
+.output {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+}
+
+.output p {
+    margin-bottom: 0.25rem;
+}
+
+.link {
+    color: #0ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    color: #ff0;
+    text-shadow: 0 0 10px #ff0;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* Mystery text */
+.mystery-text {
+    margin-top: 2rem;
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+}
+
+.mystery-text:hover {
+    opacity: 1;
+}
+
+#mystery {
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    color: #f0f;
+    text-shadow: 0 0 10px #f0f;
+}
+
+/* Floating symbols */
+.floating-symbols {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.symbol {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(0, 255, 255, 0.3);
+    animation: float 20s infinite ease-in-out;
+}
+
+.symbol:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.symbol:nth-child(2) { top: 20%; left: 80%; animation-delay: 3s; }
+.symbol:nth-child(3) { top: 60%; left: 20%; animation-delay: 6s; }
+.symbol:nth-child(4) { top: 80%; left: 70%; animation-delay: 9s; }
+.symbol:nth-child(5) { top: 50%; left: 50%; animation-delay: 12s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(90deg); }
+    50% { transform: translateY(0) rotate(180deg); }
+    75% { transform: translateY(20px) rotate(270deg); }
+}
+
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end);
+}
+
+/* Pulse animation for bandcamp link */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        text-shadow: 0 0 5px #0ff;
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 0 0 20px #f0f, 0 0 30px #ff0;
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 5px #0ff;
+    }
+}
+
+/* Oscilloscope */
+.oscilloscope {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.oscilloscope svg {
+    width: 100%;
+    height: 100%;
+}
+
+.wave {
+    fill: none;
+    stroke: #0ff;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 10px #0ff);
+    animation: oscillate 4s ease-in-out infinite;
+}
+
+@keyframes oscillate {
+    0%, 100% {
+        d: path("M0,50 Q100,10 200,50 T400,50");
+    }
+    25% {
+        d: path("M0,50 Q100,90 200,50 T400,50");
+    }
+    50% {
+        d: path("M0,50 Q100,50 200,50 T400,50");
+    }
+    75% {
+        d: path("M0,50 Q100,20 200,80 T400,50");
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .glitch {
+        font-size: 2.5rem;
+    }
+    
+    .terminal {
+        margin: 0 1rem;
+    }
+    
+    .symbol {
+        font-size: 1.5rem;
+    }
+    
+    .oscilloscope {
+        height: 50px;
+    }
+}
